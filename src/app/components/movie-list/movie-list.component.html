@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <div class="movie__header">
+        <button class="movie__heart_btn" (click)="openFavoriteList()">
+          <span class="count">{{movieFavorite.length}}</span>
+          <svg class="movie__favorite_icon icon">
+            <use href="assets/images/symbol-defs.svg#icon-heart"></use>
+          </svg>
+        </button>
+        <button class="movie__eye_btn" (click)="openWatchList()">
+          <span class="count">{{moviesWatchList.length}}</span>
+          <svg class="movie__watch_icon icon">
+            <use href="assets/images/symbol-defs.svg#icon-eye"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="movie__list_content" *ngIf="!favorite && !watch">
+      <h2 class="title">Movie Trends</h2>
+      <ul class="movie__list">
+        <app-movie-card *ngFor="let movie of movies" [data]="movie" (addFavorite)="handleAddToFavorite($event)"
+          (addWatch)="handleAddToWatchList($event)">
+        </app-movie-card>
+      </ul>
+    </div>
+
+    <div class="movie__favorite_list_content movie__list_content" [class.favorite]="favorite">
+      <h2 class="title">Your Favorite List</h2>
+
+      <ul class=" movie__list_favorite movie__list">
+        <app-movie-card *ngFor="let movie of movieFavorite" [data]="movie" [favorite]="favorite"></app-movie-card>
+      </ul>
+    </div>
+    <div class="movie__watch_list_content movie__list_content" [class.watch]="watch">
+      <h2 class="title">Your Watch List</h2>
+      <ul class=" movie__list_watch movie__list">
+        <app-movie-card *ngFor="let movie of moviesWatchList" [data]="movie" [watch]="watch"></app-movie-card>
+      </ul>
+    </div>
+  </div>
+</div>

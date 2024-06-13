@@ -1,0 +1,128 @@
+.movie__list_item {
+  width: 100%;
+  position: relative;
+  list-style: none;
+  scroll-snap-align: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  overflow: hidden;
+}
+
+
+.movie__list_title {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.btn {
+  color: silver;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid silver;
+  margin: 0;
+  cursor: pointer;
+  background-color: inherit;
+  transition: color 300ms ease;
+
+  &:hover {
+    color: #ffffff;
+    transition: color 300ms ease;
+  }
+
+  @media screen and (min-width:768px) {
+    padding: 5px 0;
+  }
+}
+
+.movie__list_title {
+  font-size: 18px;
+
+  @media screen and (min-width:768px) {
+    font-size: 24px;
+  }
+}
+
+.movie__list_text {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-weight: 400;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: silver;
+  font-size: 14px;
+}
+
+.movie__list_image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 30%;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 10px;
+
+  @media screen and (min-width:768px) {
+    min-height: 50%;
+  }
+}
+
+.movie__info {
+  padding: 0 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  transition: height 300ms ease;
+  height: 32%;
+
+  @media screen and (min-width:378px) {
+    height: 20%;
+  }
+
+  @media screen and (min-width:768px) {
+    height: 20%;
+  }
+}
+
+.movie__active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.movie__actions {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  padding: 0 10px;
+  margin-bottom: 10px;
+
+}
+
+.more .movie__info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  height: 100%;
+  gap: 10px;
+  transition: height 300ms ease;
+}
+
+.overview {
+  position: absolute;
+  z-index: -1;
+}
+
+.more .overview {
+  position: relative;
+  z-index: 2;
+}
