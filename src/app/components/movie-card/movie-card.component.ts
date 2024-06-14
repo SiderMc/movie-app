@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TimePipe } from '../../pipes/time/time.pipe';
+
 
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TimePipe],
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
