@@ -1,0 +1,15 @@
+<li class="movie__list_item" [class.more]="open">
+  <img [src]="data.backdrop_path" alt="{{data.title}}" class="movie__list_image">
+  <div class="movie__info">
+    <h2 class="movie__list_title">{{data.title}}</h2>
+    <p class="movie__list_text overview">{{data.overview}}</p>
+    <p class="movie__list_text">Release date {{data.release_date}}</p>
+    <p class="movie__list_text">Rating {{data.vote_average}}</p>
+  </div>
+
+  <div class="movie__actions" *ngIf="!favorite && !watch">
+    <button class=" movie__list_more btn" (click)="seeMore()">More</button>
+    <button class="movie__active_favorite btn" (click)="addToFavorite()">Add to favorite</button>
+    <button class="movie__active_watch btn" (click)="addToWatch()">Add to watch list</button>
+  </div>
+</li>
