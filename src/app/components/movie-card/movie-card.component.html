@@ -5,6 +5,8 @@
     <p class="movie__list_text overview">{{data.overview}}</p>
     <p class="movie__list_text">Release date {{data.release_date}}</p>
     <p class="movie__list_text">Rating {{data.vote_average}}</p>
+    <p class="movie__list_text">{{data.duration_of_the_movie | time}}</p>
+
   </div>
 
   <div class="movie__actions" *ngIf="!favorite && !watch">
