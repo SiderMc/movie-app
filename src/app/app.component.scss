@@ -1,0 +1,16 @@
+:host {
+  ::ng-deep {
+    .btn {
+      color: rgba(0, 0, 0, 0.6);
+      min-width: 100%;
+      padding: 7px 0;
+      transition: color 300ms ease;
+
+      &:hover {
+        color: #ffffff;
+        transition: color 300ms ease;
+      }
+    }
+
+  }
+}

@@ -13,10 +13,8 @@ export class TimePipe implements PipeTransform {
       return `${minutes} m`
     }
     if (minutes === 0) {
-      return `${hour} h`
-      
+      return `${hour} h`   
     }
     return `${hour}h   ${minutes}m`
   }
-
 }
