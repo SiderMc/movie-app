@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 
+
 @Component({
   selector: 'app-movie-list',
   standalone: true,
@@ -12,4 +13,5 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 export class MovieListComponent {
   @Input() movies: any[] = [];
   @Input() categoryTitle: string = '';
+
 }

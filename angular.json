@@ -36,6 +36,7 @@
                 "primeng/resources/themes/viva-light/theme.css",
               "node_modules/primeicons/primeicons.css"
             ],
+            
             "scripts": []
           },
           "configurations": {

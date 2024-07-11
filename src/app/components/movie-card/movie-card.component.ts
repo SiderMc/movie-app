@@ -1,3 +1,4 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 import { DetailsComponent } from '../../pages/details/details.component';
 import { RouterModule } from '@angular/router';
@@ -5,7 +6,6 @@ import { TimePipe } from '../../pipes/time.pipe';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { MovieService } from '../../services/movie-service/movie.service';
-
 @Component({
   selector: 'app-movie-card',
   standalone: true,
