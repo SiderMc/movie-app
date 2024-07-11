@@ -1,15 +1,32 @@
-<li class="movie__list_item" [class.more]="open">
-  <img [src]="data.backdrop_path" alt="{{data.title}}" class="movie__list_image">
-  <div class="movie__info">
-    <h2 class="movie__list_title">{{data.title}}</h2>
-    <p class="movie__list_text overview">{{data.overview}}</p>
-    <p class="movie__list_text">Release date {{data.release_date}}</p>
-    <p class="movie__list_text">Rating {{data.vote_average}}</p>
-  </div>
-
-  <div class="movie__actions" *ngIf="!favorite && !watch">
-    <button class=" movie__list_more btn" (click)="seeMore()">More</button>
-    <button class="movie__active_favorite btn" (click)="addToFavorite()">Add to favorite</button>
-    <button class="movie__active_watch btn" (click)="addToWatch()">Add to watch list</button>
+<li class="movie__list_card">
+  <img class="movie__list_card_image" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}"
+    alt="{{movie.title}}">
+  <div class="movie__list_card_content">
+    <div class="movie__list_card_top">
+      <a [routerLink]="['/details', movie.id]" class="movie__list_card_details">
+        <h2 class="movie__list_card_title">{{movie.title}}</h2>
+      </a>
+      <p class="movie__list_card_rating">
+        <p-rating [(ngModel)]="movieRating" [readonly]="true" [cancel]="false" iconOffClass="pi pi-star"></p-rating>
+      </p>
+      <p class="movie__list_card_duration">
+        <span class="movie__list_card_span">Release Date: </span>
+        {{movie.release_date}}
+      </p>
+    </div>
+    <div class="movie__list_card_footer">
+      <button class="movie__list_card_favorite movie__list_card_btn secondary__btn" title="add to favorite list"
+        (click)="addToList(movie, 'favorite')">
+        <svg class="movie__list_card_icon icons">
+          <use href="assets/images/symbol-defs.svg#add-to-favorite"></use>
+        </svg>
+      </button>
+      <button class="movie__list_card_watch movie__list_card_btn secondary__btn" title="add to watch list"
+        (click)="addToList(movie)">
+        <svg class="movie__list_card_icon icons">
+          <use href="assets/images/symbol-defs.svg#add-to-watch"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </li>

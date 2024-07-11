@@ -1,0 +1,36 @@
+<section class="details">
+  <div class="container">
+    <h1 class="details__title section__title">{{movie.title}}</h1>
+    <div class="details__movie">
+      <div class="details__left">
+        <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="" class="details__image">
+      </div>
+      <div class="details__right">
+        <div class="details__text_content">
+          <p class="details__text_movie rating__movie">
+            <p-rating [(ngModel)]="movieRating" [readonly]="false" [cancel]="false" iconOffClass="pi pi-star" />
+          </p>
+          <p class="details__text_movie"><span class="details__text_movie_span">Vote Count : </span>{{movie.vote_count
+            }}</p>
+          <p class="details__text_movie"><span class="details__text_movie_span">Relise Date :</span>
+            {{movie.release_date}}
+          </p>
+          <p class="details__text_movie">{{movie.overview}}</p>
+        </div>
+        <div class="details__action">
+          <button class="details__action_btn secondary__btn" title="add to favorite list"
+            (click)="addToList(movie,'favorite')">
+            <svg class="details__action_icon icons">
+              <use href="assets/images/symbol-defs.svg#add-to-favorite"></use>
+            </svg>
+          </button>
+          <button class="details__action_btn secondary__btn" title="add to watch later" (click)="addToList(movie)">
+            <svg class="details__action_icon icons">
+              <use href="assets/images/symbol-defs.svg#add-to-watch"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

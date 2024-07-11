@@ -1,0 +1,53 @@
+<div class="sidebar" [ngClass]="{'sidebar__open': isOpenSidebar}">
+  <div class="sidebar__container">
+    <div class="sidebar__top">
+      <button class="sidebar__burger_btn primary__btn" (click)="handleOpenSidebar()">
+        <span class="sidebar__burger_btn_line"></span>
+        <span class="sidebar__burger_btn_line"></span>
+        <span class="sidebar__burger_btn_line"></span>
+      </button>
+    </div>
+    <ul class="sidebar__list">
+      <li class="sidebar__list_item">
+        <a [routerLink]="'/now-playing'" routerLinkActive="sidebar__active" class="sidebar__btn primary__btn">
+          <svg class="sidebar__icons icons">
+            <use href="assets/images/symbol-defs.svg#playing"></use>
+          </svg>
+          <p class="sidebar__text">
+            Now Playing
+          </p>
+        </a>
+      </li>
+      <li class="sidebar__list_item">
+        <a [routerLink]="'/top-rating'" routerLinkActive="sidebar__active" class="sidebar__btn primary__btn">
+          <svg class="sidebar__icons icons">
+            <use href="assets/images/symbol-defs.svg#crown"></use>
+          </svg>
+          <p class="sidebar__text">
+            Top Rating
+          </p>
+        </a>
+      </li>
+      <li class="sidebar__list_item">
+        <a [routerLink]="'/popular'" routerLinkActive="sidebar__active" class="sidebar__btn primary__btn">
+          <svg class="sidebar__icons icons">
+            <use href="assets/images/symbol-defs.svg#star"></use>
+          </svg>
+          <p class="sidebar__text">
+            Popular
+          </p>
+        </a>
+      </li>
+      <li class="sidebar__list_item">
+        <a [routerLink]="'/upcoming'" routerLinkActive="sidebar__active" class="sidebar__btn primary__btn">
+          <svg class="sidebar__icons icons">
+            <use href="assets/images/symbol-defs.svg#upcoming"></use>
+          </svg>
+          <p class="sidebar__text">
+            Upcoming
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

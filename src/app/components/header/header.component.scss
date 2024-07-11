@@ -1,0 +1,98 @@
+.header {
+  width: 100%;
+  padding: 20px 0;
+
+  @media screen and (min-width:768px) {
+    padding: 30px 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 10px;
+    margin: 0 auto;
+
+    @media screen and (min-width:768px) {
+      padding: 0 30px;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  &__logo {
+    padding: 5px 10px;
+    box-shadow: inset 5px 5px 5px var(--shadow-color), 5px 5px 5px var(--shadow-color);
+  }
+
+  &__logo_link {
+    font-family: var(--font-family-decor);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 0, 0, 0.8);
+
+    @media screen and (min-width:768px) {
+      font-size: 30px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__btn {
+
+    @media screen and (min-width:768px) {
+      max-width: 100%;
+    }
+  }
+
+  &__list_quantity {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 12px;
+    color: var(--second-color);
+    background: var(--first-color);
+    padding: 2px;
+    border-radius: 50%;
+
+    @media screen and (min-width:768px) {
+      right: 0;
+      font-size: var(--font-size-base);
+    }
+  }
+
+  &__icons {
+    @media screen and (min-width:768px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    @media screen and (max-width:768px) {
+      display: none;
+    }
+  }
+}
+
+.header__btn:hover {
+  transform: rotateY(0);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow var(--animation), transform var(--animation), color var(--animation);
+}
+
+.header__btn:hover .header__icons {
+  transform: scale(1.1);
+  transition: transform var(--animation);
+}
