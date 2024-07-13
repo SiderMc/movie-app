@@ -1,8 +1,11 @@
 <section class="movie">
   <div class="container">
-    <h2 class="movie__title section__title">{{categoryTitle}}</h2>
+    <h2 class="movie__title section__title">{{ categoryTitle }}</h2>
     <ul class="movie__list">
-      <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-movie-card>
     </ul>
   </div>
 </section>

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UpcomingComponent } from './upcoming.component';
 
 describe('UpcomingComponent', () => {
@@ -8,10 +7,9 @@ describe('UpcomingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UpcomingComponent]
-    })
-    .compileComponents();
-    
+      imports: [UpcomingComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(UpcomingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

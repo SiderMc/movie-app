@@ -1,6 +1,10 @@
 :root {
   --accent-color: rgba(0, 0, 0, 0.1);
-  --first-color: linear-gradient(150deg, rgba(255, 0, 0, 0.8) 0%, rgba(255, 0, 0, 0.1) 91.15%);
+  --first-color: linear-gradient(
+    150deg,
+    rgba(255, 0, 0, 0.8) 0%,
+    rgba(255, 0, 0, 0.1) 91.15%
+  );
   --second-color: rgba(255, 255, 255, 0.5);
   --shadow-color: rgba(0, 0, 0, 0.5);
 
@@ -10,12 +14,9 @@
   --font-size-base: 14px;
   --font-size-secondary: 16px;
   --font-size-third: 20px;
-  --font-family-primary: "Merriweather",
-    serif;
-  --font-family-decor: "Creepster",
-    system-ui;
+  --font-family-primary: "Merriweather", serif;
+  --font-family-decor: "Creepster", system-ui;
 
   --animation: 300ms linear;
   --border-radius: 11px;
-
 }

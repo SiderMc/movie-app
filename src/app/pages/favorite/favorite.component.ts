@@ -7,14 +7,12 @@ import { MovieService } from '../../services/movie-service/movie.service';
   standalone: true,
   imports: [MovieListComponent],
   templateUrl: './favorite.component.html',
-  styleUrl: './favorite.component.scss'
+  styleUrl: './favorite.component.scss',
 })
-export class FavoriteComponent implements OnInit{
-public favoriteMovies:any[]=[]
-  constructor(private movieService: MovieService) {
-  }
+export class FavoriteComponent implements OnInit {
+  favoriteMovies: any[] = [];
+  constructor(private movieService: MovieService) {}
   ngOnInit() {
-  this.favoriteMovies= this.movieService.getFavoriteMovies()
+    this.favoriteMovies = this.movieService.getFavoriteMovies();
   }
-
 }

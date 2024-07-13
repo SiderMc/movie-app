@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TopRateComponent } from './top-rate.component';
 
 describe('TopRateComponent', () => {
@@ -8,10 +7,9 @@ describe('TopRateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TopRateComponent]
-    })
-    .compileComponents();
-    
+      imports: [TopRateComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TopRateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

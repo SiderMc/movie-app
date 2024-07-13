@@ -7,12 +7,12 @@ import { MovieService } from '../../services/movie-service/movie.service';
   standalone: true,
   imports: [MovieListComponent],
   templateUrl: './top-rate.component.html',
-  styleUrl: './top-rate.component.scss'
+  styleUrl: './top-rate.component.scss',
 })
-export class TopRateComponent implements OnInit{
-  public topRate: any[] = []
-  constructor(private movieService: MovieService) { }
+export class TopRateComponent implements OnInit {
+  topRate: any[] = [];
+  constructor(private movieService: MovieService) {}
   ngOnInit(): void {
-    this.topRate = this.movieService.getTopRateMovies()
+    this.topRate = this.movieService.getTopRateMovies();
   }
 }

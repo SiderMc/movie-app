@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NowPlayingComponent } from './now-playing.component';
 
 describe('NowPlayingComponent', () => {
@@ -8,10 +7,9 @@ describe('NowPlayingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NowPlayingComponent]
-    })
-    .compileComponents();
-    
+      imports: [NowPlayingComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(NowPlayingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

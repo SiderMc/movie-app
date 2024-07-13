@@ -7,12 +7,12 @@ import { MovieService } from '../../services/movie-service/movie.service';
   standalone: true,
   imports: [MovieListComponent],
   templateUrl: './upcoming.component.html',
-  styleUrl: './upcoming.component.scss'
+  styleUrl: './upcoming.component.scss',
 })
-export class UpcomingComponent implements OnInit{
-  public upcoming: any[] = []
-  constructor(private movieService: MovieService) { }
+export class UpcomingComponent implements OnInit {
+  upcoming: any[] = [];
+  constructor(private movieService: MovieService) {}
   ngOnInit(): void {
-    this.upcoming = this.movieService.getUpcomingMovies()
+    this.upcoming = this.movieService.getUpcomingMovies();
   }
 }

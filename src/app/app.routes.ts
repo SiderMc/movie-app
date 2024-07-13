@@ -8,7 +8,6 @@ import { DetailsComponent } from './pages/details/details.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { WatchComponent } from './pages/watch/watch.component';
 
-
 export const routes: Routes = [
   {
     path: '',

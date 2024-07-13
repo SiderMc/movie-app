@@ -6,7 +6,6 @@
   transform: scale(0.9);
   transition: transform var(--animation);
 }
-
 .primary__btn,
 .secondary__btn {
   position: relative;
@@ -20,24 +19,22 @@
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 5px var(--shadow-color);
   transform: rotateY(5deg);
-  transition: box-shadow var(--animation), transform var(--animation), color var(--animation);
-
-  @media screen and (min-width:768px) {
+  transition: box-shadow var(--animation), transform var(--animation),
+    color var(--animation);
+  @media screen and (min-width: 768px) {
     font-size: var(--font-size-secondary);
   }
-
   &:hover {
     color: var(--hover-primary);
     transform: rotateY(0);
     box-shadow: 1px 1px 1px var(--shadow-color);
-    transition: box-shadow var(--animation), transform var(--animation), color var(--animation);
+    transition: box-shadow var(--animation), transform var(--animation),
+      color var(--animation);
   }
 }
-
 .secondary__btn {
   background: var(--first-color);
 }
-
 .section__title {
   font-size: var(--font-size-secondary);
   display: inline-block;
@@ -48,18 +45,14 @@
   background-color: var(--accent-color);
   padding: 5px 5px;
   border-radius: 0 11px 11px 0;
-
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     font-size: var(--font-size-third);
     padding: 5px 20px;
   }
-
 }
-
 .p-rating-icon {
   color: #f5c518;
 }
-
 .pi-star {
   color: #6c6c6c;
 }

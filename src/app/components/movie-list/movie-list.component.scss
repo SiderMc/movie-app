@@ -1,31 +1,25 @@
 .movie {
   width: 100%;
-
   .container {
     margin: 0 auto;
     padding: 0 20px;
   }
-
   &__list {
     width: clamp(10.313rem, -7.917rem + 104.167dvw, 18.125rem);
-
-    @media screen and (min-width:400px) {
+    @media screen and (min-width: 400px) {
       width: clamp(18rem, 3.559rem + 57.766dvw, 31.25rem);
     }
-
-    @media screen and (min-width:768px) {
+    @media screen and (min-width: 768px) {
       display: flex;
       gap: 20px;
       flex-direction: row;
       flex-wrap: wrap;
       width: clamp(31.25rem, 3.125rem + 58.594dvw, 50rem);
     }
-
-    @media screen and (min-width:1280px) {
+    @media screen and (min-width: 1280px) {
       width: clamp(50rem, -50rem + 125dvw, 62.5rem);
     }
   }
-
   &__title {
     margin-bottom: 26px;
   }

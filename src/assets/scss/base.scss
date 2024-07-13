@@ -3,33 +3,27 @@
   margin: 0px;
   border: 0px;
 }
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 *::before,
 *::after {
   display: inline-block;
 }
-
 :focus,
 :active {
   outline: none;
 }
-
 a:focus,
 a:active {
   outline: none;
 }
-
 html,
 body {
   height: 100%;
 }
-
 body {
   background: rgba(0, 0, 0, 0.9);
   font-size: var(--font-size-base);
@@ -41,7 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 input,
 button,
 textarea {
@@ -51,29 +44,24 @@ textarea {
   color: inherit;
   background-color: transparent;
 }
-
 input,
 textarea {
   width: 100%;
 }
-
 button,
 select,
 option {
   cursor: pointer;
 }
-
 a {
   display: inline-block;
   color: inherit;
   text-decoration: none;
 }
-
 ul,
 ol {
   list-style: none;
 }
-
 img {
   vertical-align: top;
 }
@@ -87,45 +75,36 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-
 ::-webkit-scrollbar {
   height: 1px;
   width: 5px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 0, 0, 0.8);
 }
-
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
-
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-
 ::selection {
   background: var(--second-color);
 }
-
 main {
   margin: 0 auto;
 }
-
 .container__main {
   display: flex;
   flex-wrap: nowrap;
   padding: 10px;
-
-  @media screen and (min-width:768px) {
+  @media screen and (min-width: 768px) {
     padding: 30px;
   }
-
-  @media screen and (min-width:1280px) {
+  @media screen and (min-width: 1280px) {
     padding: 50px;
   }
 }

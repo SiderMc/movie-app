@@ -5,11 +5,11 @@ import { PopularComponent } from '../../pages/popular/popular.component';
 import { TopRateComponent } from '../../pages/top-rate/top-rate.component';
 import { NowPlayingComponent } from '../../pages/now-playing/now-playing.component';
 import { RouterModule } from '@angular/router';
-
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     UpcomingComponent,
     PopularComponent,
     TopRateComponent,
@@ -17,14 +17,19 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-isOpenSidebar: boolean = false;
-@Output() sidebarToggle = new EventEmitter<boolean>();
-
-handleOpenSidebar() {
-  this.isOpenSidebar = !this.isOpenSidebar;
-  this.sidebarToggle.emit(this.isOpenSidebar);
-}
+  @Output() sidebarToggle = new EventEmitter<boolean>();
+  isOpenSidebar: boolean = false;
+  menuItems = [
+    { link: '/now-playing', icon: 'playing', text: 'Now Playing' },
+    { link: '/top-rating', icon: 'crown', text: 'Top Rating' },
+    { link: '/popular', icon: 'star', text: 'Popular' },
+    { link: '/upcoming', icon: 'upcoming', text: 'Upcoming' },
+  ];
+  handleOpenSidebar() {
+    this.isOpenSidebar = !this.isOpenSidebar;
+    this.sidebarToggle.emit(this.isOpenSidebar);
+  }
 }

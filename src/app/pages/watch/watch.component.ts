@@ -7,13 +7,12 @@ import { MovieService } from '../../services/movie-service/movie.service';
   standalone: true,
   imports: [MovieListComponent],
   templateUrl: './watch.component.html',
-  styleUrl: './watch.component.scss'
+  styleUrl: './watch.component.scss',
 })
 export class WatchComponent {
-public watchMovies:any[]=[]
-  constructor(private movieService: MovieService) {
-  }
+  watchMovies: any[] = [];
+  constructor(private movieService: MovieService) {}
   ngOnInit() {
-  this.watchMovies= this.movieService.getWatchMovies()
+    this.watchMovies = this.movieService.getWatchMovies();
   }
 }
