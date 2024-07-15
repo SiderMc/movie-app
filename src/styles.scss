@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+//======fonts=====
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Creepster&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+
+//======styles=====
+@import "assets/scss/variables.scss";
+@import "assets/scss/base.scss";
+@import "assets/scss/components.scss"

@@ -1,138 +1,26 @@
-.container {
-  margin: 0 auto;
-  padding: 10px;
-}
-
-.header {
-  border-bottom: 1px solid silver;
-  display: flex;
-  justify-content: center;
-}
-
-.count {
-  color: #ffffff;
-}
-
-.title {
-  color: #ffffff;
-}
-
-.movie__list {
-  display: flex;
-  gap: 10px;
+.movie {
   width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-
-  @media screen and (min-width:768px) {
-    gap: 10px;
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
   }
-}
-
-.movie__list * {
-  flex: 0 0 100%;
-
-
-  @media screen and (min-width:768px) {
-    flex: 0 0 calc((100% - 10px) / 2);
+  &__list {
+    width: clamp(10.313rem, -7.917rem + 104.167dvw, 18.125rem);
+    @media screen and (min-width: 400px) {
+      width: clamp(18rem, 3.559rem + 57.766dvw, 31.25rem);
+    }
+    @media screen and (min-width: 768px) {
+      display: flex;
+      gap: 20px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: clamp(31.25rem, 3.125rem + 58.594dvw, 50rem);
+    }
+    @media screen and (min-width: 1280px) {
+      width: clamp(50rem, -50rem + 125dvw, 62.5rem);
+    }
   }
-}
-
-.movie__eye_btn,
-.movie__heart_btn {
-  background-color: inherit;
-  border: none;
-}
-
-.icon {
-  width: 30px;
-  height: 30px;
-  display: block;
-  cursor: pointer;
-  fill: #ffffff;
-  transform: scale(0.9);
-  transition: transform 300ms ease;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-  transition: transform 300ms ease;
-}
-
-.movie__heart_btn,
-.movie__eye_btn {
-  position: relative;
-}
-
-.count {
-  position: absolute;
-  z-index: 2;
-  color: #ffffff;
-  right: 2px;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-
-.movie__list_content {
-  max-width: 400px;
-  margin: 2% auto;
-  padding: 0 10px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  overflow: auto;
-
-  padding: 10px 5px;
-
-  @media screen and (min-width:768px) {
-    max-width: 608px;
-  }
-}
-
-.movie__list_content::-webkit-scrollbar {
-  height: 5px;
-  max-width: 300px;
-  border-radius: 10px;
-
-  @media screen and (min-width:768px) {
-    height: 10px;
-  }
-}
-
-.movie__list_content::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #0499dd 0%, #17c1bc 100%);
-}
-
-.movie__list_content::-webkit-scrollbar-track {
-  background-color: silver;
-  border-radius: 10px;
-}
-
-.movie__favorite_list_content {
-  position: absolute;
-  z-index: -1;
-  transform: translateX(-200%);
-  transition: transform 300ms ease;
-
-  &.favorite {
-    position: relative;
-    z-index: 2;
-    transform: translateX(0);
-    transition: transform 300ms ease;
-  }
-}
-
-.movie__watch_list_content {
-  position: absolute;
-  z-index: -1;
-  transform: translateX(-200%);
-  transition: all 300ms ease;
-
-  &.watch {
-    position: relative;
-    z-index: 2;
-    transform: translateX(0);
-    transition: transform 300ms ease;
+  &__title {
+    margin-bottom: 26px;
   }
 }

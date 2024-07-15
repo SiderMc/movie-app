@@ -1,0 +1,33 @@
+.not__found {
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  &_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44dvh;
+    @media screen and (min-width: 1280px) {
+      height: 50dvh;
+    }
+  }
+  &_title {
+    margin: 0;
+    white-space: nowrap;
+    font-family: var(--font-family-decor);
+    color: var(--primary-text-color);
+    font-size: clamp(1.563rem, 1.204rem + 2.049dvw, 2.188rem);
+    letter-spacing: 0.02em;
+    text-shadow: 10px 10px 5px var(--shadow-color);
+    @media screen and (min-width: 768px) {
+      font-size: clamp(2.188rem, 1.25rem + 1.953dvw, 2.813rem);
+      letter-spacing: 0.06em;
+    }
+    @media screen and (min-width: 1280px) {
+      font-size: 45px;
+      letter-spacing: 0.06em;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="sidebar" [ngClass]="{ sidebar__open: isOpenSidebar }">
+  <div class="sidebar__container">
+    <div class="sidebar__top">
+      <button
+        class="sidebar__burger_btn primary__btn"
+        (click)="handleOpenSidebar()"
+      >
+        <span class="sidebar__burger_btn_line"></span>
+        <span class="sidebar__burger_btn_line"></span>
+        <span class="sidebar__burger_btn_line"></span>
+      </button>
+    </div>
+    <ul class="sidebar__list">
+      <li class="sidebar__list_item" *ngFor="let item of menuItems">
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="sidebar__active"
+          class="sidebar__btn primary__btn"
+        >
+          <svg class="sidebar__icons icons">
+            <use
+              [attr.href]="'assets/images/symbol-defs.svg#' + item.icon"
+            ></use>
+          </svg>
+          <p class="sidebar__text">{{ item.text }}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

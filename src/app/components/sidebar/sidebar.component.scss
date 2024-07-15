@@ -1,0 +1,100 @@
+.sidebar {
+  position: relative;
+  min-width: 51px;
+  max-width: 51px;
+  min-height: 100%;
+  transition: min-width var(--animation), min-height var(--animation);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media screen and (min-width: 1280px) {
+      gap: 50px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__open {
+    position: relative;
+    z-index: 5;
+    min-width: calc(100dvw - 20px);
+    min-height: 100dvh;
+    overflow: hidden;
+    transition: min-width var(--animation), min-height var(--animation);
+    @media screen and (min-width: 768px) {
+      min-width: 200px;
+      min-height: 100%;
+      transition: min-width var(--animation), min-height var(--animation);
+    }
+    @media screen and (min-width: 1280px) {
+    }
+  }
+  &__burger_btn {
+    padding: 25.5px;
+    &_line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 50%;
+      height: 2px;
+      transform: translateX(50%);
+      background-color: var(--second-color);
+      transition: width var(--animation);
+    }
+    &_line:first-child {
+      top: 16px;
+      transition: transform var(--animation);
+    }
+    &_line:nth-child(2) {
+      top: 24px;
+      transition: opacity var(--animation);
+    }
+    &_line:last-child {
+      top: 32px;
+      transition: transform var(--animation);
+    }
+  }
+  &__btn {
+    overflow: hidden;
+    @media screen and (min-width: 1280px) {
+      max-width: 100%;
+    }
+  }
+  &__icons {
+    margin-right: 15px;
+  }
+
+  &__open &__text {
+    display: block;
+  }
+  &__active &__icons {
+    fill: rgba(255, 0, 0, 0.8);
+    transform: scale(1.2);
+    transition: transform var(--animation), fill var(--animation),
+      stroke var(--animation);
+  }
+  &__active &__text {
+    font-size: var(--font-size-secondary);
+    transition: color var(--animation);
+    border-radius: var(--border-radius);
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-third);
+    }
+  }
+  &__open &__burger_btn_line:first-child {
+    transform: rotate(44deg) translate(17px, -3px);
+    transition: transform var(--animation);
+  }
+  &__open &__burger_btn_line:last-child {
+    transform: rotate(-44deg) translate(13px, 4px);
+    transition: transform var(--animation);
+  }
+  &__open &__burger_btn_line:nth-child(2) {
+    opacity: 0;
+    transition: opacity var(--animation);
+  }
+}

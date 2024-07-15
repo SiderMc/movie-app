@@ -1,0 +1,102 @@
+.details {
+  .container {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  &__movie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: max-content;
+    width: clamp(10.313rem, -7.917rem + 104.167dvw, 18.125rem);
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    @media screen and (min-width: 400px) {
+      width: clamp(18rem, 3.559rem + 57.766dvw, 31.25rem);
+    }
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: clamp(31.25rem, 3.125rem + 58.594dvw, 50rem);
+    }
+    @media screen and (min-width: 1280px) {
+      gap: 20px;
+      width: clamp(50rem, -50rem + 125dvw, 62.5rem);
+    }
+  }
+  &__left {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    @media screen and (min-width: 400px) {
+      height: 400px;
+    }
+    @media screen and (min-width: 768px) {
+      flex: 0 0 calc((100% - 20px) / 2);
+    }
+    @media screen and (min-width: 1280px) {
+      flex: 0 0 40%;
+      height: 350px;
+    }
+  }
+  &__right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 20px;
+  }
+  &__title {
+    margin: 0 0 26px 0;
+  }
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__text_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+  }
+  &__text_movie {
+    display: inline-block;
+    color: var(--primary-text-color);
+    @media screen and (min-width: 768px) {
+      font-size: var(--font-size-secondary);
+    }
+  }
+  &__text_movie:last-child {
+    font-style: italic;
+    letter-spacing: 0.03em;
+  }
+  &__text_movie_span {
+    background: var(--first-color);
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: var(--border-radius);
+    font-style: italic;
+    padding: 2px 7px;
+    margin-right: 10px;
+  }
+  &__action {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end;
+  }
+  &__action_btn {
+    padding: 5px;
+  }
+  &__action_icon.second__btn {
+    min-width: 100%;
+    min-height: 100%;
+    transform: scale(1.3);
+    stroke: var(--second-color);
+  }
+}
+.details__action_btn:hover .details__action_icon {
+  transform: scale(1.1);
+  transition: transform var(--animation);
+}

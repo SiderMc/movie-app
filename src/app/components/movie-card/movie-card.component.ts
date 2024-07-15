@@ -1,36 +1,24 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TimePipe } from '../../pipes/time/time.pipe';
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
+import { Component, Input, OnInit } from '@angular/core';
+import { DetailsComponent } from '../../pages/details/details.component';
+import { RouterModule } from '@angular/router';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { MovieService } from '../../services/movie-service/movie.service';
 @Component({
   selector: 'app-movie-card',
   standalone: true,
-  imports: [CommonModule,TimePipe,CardModule,ButtonModule,RatingModule,FormsModule],
+  imports: [DetailsComponent, RouterModule, RatingModule, FormsModule],
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss'],
+  styleUrl: './movie-card.component.scss',
 })
-export class MovieCardComponent {
-  @Input() data: any;
-  @Input() favorite: boolean = false;
-  @Input() watch: boolean = false;
-
-  @Output() addFavorite = new EventEmitter<any>();
-  @Output() addWatch = new EventEmitter<any>();
-  @Output() more = new EventEmitter<any>();
-  
-  public open: boolean = false;
-
-  addToFavorite() {
-    this.addFavorite.emit(this.data);
+export class MovieCardComponent implements OnInit {
+  @Input() movie: any;
+  movieRating: number = 0;
+  constructor(private movieService: MovieService) {}
+  addToList(movie: any, listName?: string) {
+    this.movieService.setMovies(movie, listName);
   }
-  addToWatch() {
-    this.addWatch.emit(this.data);
-  }
-  seeMore() {
-    this.more.emit(this.data);
-    this.open = !this.open;
+  ngOnInit() {
+    this.movieRating = Math.round(this.movie.vote_average / 2);
   }
 }
