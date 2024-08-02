@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
-import { MovieService } from '../../services/movie-service/movie.service';
+import { Movie } from '../../models/movie';
+import { Endpoints } from '../../enums/movie-endpoints';
 
 @Component({
   selector: 'app-now-playing',
@@ -9,10 +10,8 @@ import { MovieService } from '../../services/movie-service/movie.service';
   templateUrl: './now-playing.component.html',
   styleUrl: './now-playing.component.scss',
 })
-export class NowPlayingComponent implements OnInit {
-  nowPlaying: any[] = [];
-  constructor(private movieService: MovieService) {}
-  ngOnInit(): void {
-    this.nowPlaying = this.movieService.getNowPlayingMovies();
-  }
+export class NowPlayingComponent {
+  @Input() endpoint: string = Endpoints.NowPlaying;
+  nowPlaying: Movie[] = [];
+  constructor() {}
 }

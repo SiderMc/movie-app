@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
 import { MovieService } from '../../services/movie-service/movie.service';
+import { Movie } from '../../models/movie';
+import { Endpoints } from '../../enums/movie-endpoints';
 
 @Component({
   selector: 'app-popular',
@@ -9,10 +11,8 @@ import { MovieService } from '../../services/movie-service/movie.service';
   templateUrl: './popular.component.html',
   styleUrl: './popular.component.scss',
 })
-export class PopularComponent implements OnInit {
-  popularMovies: any[] = [];
-  constructor(private movieService: MovieService) {}
-  ngOnInit() {
-    this.popularMovies = this.movieService.getPopularMovies();
-  }
+export class PopularComponent {
+  @Input() endpoint: string = Endpoints.Popular;
+  popularMovies: Movie[] = [];
+  constructor() {}
 }

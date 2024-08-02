@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieListComponent } from '../../components/movie-list/movie-list.component';
-import { MovieService } from '../../services/movie-service/movie.service';
+import { Movie } from '../../models/movie';
+import { Endpoints } from '../../enums/movie-endpoints';
 
 @Component({
   selector: 'app-top-rate',
@@ -9,10 +10,9 @@ import { MovieService } from '../../services/movie-service/movie.service';
   templateUrl: './top-rate.component.html',
   styleUrl: './top-rate.component.scss',
 })
-export class TopRateComponent implements OnInit {
-  topRate: any[] = [];
-  constructor(private movieService: MovieService) {}
-  ngOnInit(): void {
-    this.topRate = this.movieService.getTopRateMovies();
-  }
+export class TopRateComponent {
+  @Input() endpoint: string = Endpoints.TopRated;
+  topRate: Movie[] = [];
+
+  constructor() {}
 }

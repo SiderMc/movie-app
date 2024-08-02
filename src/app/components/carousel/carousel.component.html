@@ -1,0 +1,35 @@
+<div class="home__list">
+  <div class="home__list_header">
+    <a [routerLink]="getLink()" class="home__title section__title">
+      {{ title }}
+      <svg class="home__title_arrow icons">
+        <use href="assets/images/symbol-defs.svg#arrow-next"></use>
+      </svg>
+    </a>
+  </div>
+  <div class="home__content">
+    <p-carousel
+      [numVisible]="4.5"
+      [numScroll]="1"
+      [value]="movies"
+      [circular]="false"
+      [showIndicators]="false"
+      [showNavigators]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template pTemplate="item" let-movie>
+        <a [routerLink]="['/details', movie.id]" class="home__list_link">
+          <svg class="home__icon_details icons" title="details">
+            <use href="assets/images/symbol-defs.svg#details"></use>
+          </svg>
+          <img
+            src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+            alt="{{ movie.title }}"
+            loading="lazy"
+            class="home__list_item_image"
+          />
+        </a>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

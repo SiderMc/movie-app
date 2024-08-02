@@ -3,11 +3,14 @@
     class="movie__list_card_image"
     src="https://image.tmdb.org/t/p/w500/{{ movie.backdrop_path }}"
     alt="{{ movie.title }}"
+    loading="lazy"
   />
   <div class="movie__list_card_content">
     <div class="movie__list_card_top">
       <a [routerLink]="['/details', movie.id]" class="movie__list_card_details">
-        <h2 class="movie__list_card_title">{{ movie.title }}</h2>
+        <h2 class="movie__list_card_title text__decoration">
+          {{ movie.title }}
+        </h2>
       </a>
       <p class="movie__list_card_rating">
         <p-rating
@@ -17,28 +20,42 @@
           iconOffClass="pi pi-star"
         ></p-rating>
       </p>
-      <p class="movie__list_card_duration">
-        <span class="movie__list_card_span">Release Date: </span>
-        {{ movie.release_date }}
-      </p>
     </div>
     <div class="movie__list_card_footer">
       <button
-        class="movie__list_card_favorite movie__list_card_btn secondary__btn"
-        title="add to favorite list"
-        (click)="addToList(movie, 'favorite')"
+        class="movie__list_card_favorite movie__list_card_btn"
+        [ngClass]="{
+          secondary__btn: inListFavorite,
+          primary__btn: !inListFavorite
+        }"
+        (click)="toggleForList(movie, 'favorite')"
       >
         <svg class="movie__list_card_icon icons">
-          <use href="assets/images/symbol-defs.svg#add-to-favorite"></use>
+          <use
+            [attr.href]="
+              inListFavorite
+                ? 'assets/images/symbol-defs.svg#delete-favorite'
+                : 'assets/images/symbol-defs.svg#add-favorite'
+            "
+          ></use>
         </svg>
       </button>
       <button
-        class="movie__list_card_watch movie__list_card_btn secondary__btn"
-        title="add to watch list"
-        (click)="addToList(movie)"
+        class="movie__list_card_watch movie__list_card_btn"
+        [ngClass]="{
+          secondary__btn: inListWatch,
+          primary__btn: !inListWatch
+        }"
+        (click)="toggleForList(movie, 'watch')"
       >
         <svg class="movie__list_card_icon icons">
-          <use href="assets/images/symbol-defs.svg#add-to-watch"></use>
+          <use
+            [attr.href]="
+              inListWatch
+                ? 'assets/images/symbol-defs.svg#eye-remove'
+                : 'assets/images/symbol-defs.svg#eye-add'
+            "
+          ></use>
         </svg>
       </button>
     </div>

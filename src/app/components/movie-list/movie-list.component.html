@@ -1,11 +1,32 @@
 <section class="movie">
   <div class="container">
     <h2 class="movie__title section__title">{{ categoryTitle }}</h2>
+    <button
+      class="movie__clear_list section__btn"
+      *ngIf="
+        (categoryTitle === 'Favorite List' && movies.length) ||
+        (categoryTitle === 'Watch List' && movies.length)
+      "
+      (click)="clearList(categoryTitle)"
+    >
+      Clear List
+    </button>
     <ul class="movie__list">
       <app-movie-card
         *ngFor="let movie of movies"
         [movie]="movie"
       ></app-movie-card>
     </ul>
+    <div class="movie__pagination" *ngIf="totalRecords > rows">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="totalRecords"
+        [showFirstLastIcon]="false"
+        [pageLinkSize]="3"
+        [alwaysShow]="false"
+      ></p-paginator>
+    </div>
   </div>
 </section>

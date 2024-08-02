@@ -1,3 +1,4 @@
+import { routs } from './../../paths/route-paths';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UpcomingComponent } from '../../pages/upcoming/upcoming.component';
@@ -22,13 +23,8 @@ import { RouterModule } from '@angular/router';
 export class SidebarComponent {
   @Output() sidebarToggle = new EventEmitter<boolean>();
   isOpenSidebar: boolean = false;
-  menuItems = [
-    { link: '/now-playing', icon: 'playing', text: 'Now Playing' },
-    { link: '/top-rating', icon: 'crown', text: 'Top Rating' },
-    { link: '/popular', icon: 'star', text: 'Popular' },
-    { link: '/upcoming', icon: 'upcoming', text: 'Upcoming' },
-  ];
-  handleOpenSidebar() {
+  routs = routs;
+  handleOpenSidebar(): void {
     this.isOpenSidebar = !this.isOpenSidebar;
     this.sidebarToggle.emit(this.isOpenSidebar);
   }

@@ -1,62 +1,36 @@
-import {
-  nowPlayingMovies,
-  popularMovies,
-  topRatedMovies,
-  upcomingMovies,
-} from './../../../movies/movies';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { MovieDetails, MovieResponse } from '../../models/movie';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
-  favoriteMovies: any[] = [];
-  watchMovies: any[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
-  getPopularMovies() {
-    return popularMovies;
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error.message);
+    return throwError(
+      () => new Error('Something went wrong. Please try again .')
+    );
   }
-  getTopRateMovies() {
-    return topRatedMovies;
+
+  getMovies(endpoint: string, page: number = 1): Observable<MovieResponse> {
+    return this.http
+      .get<MovieResponse>(
+        `${environment.baseUrl}${endpoint}?api_key=${environment.apiKey}&page=${page}`
+      )
+      .pipe(catchError(this.handleError));
   }
-  getUpcomingMovies() {
-    return upcomingMovies;
-  }
-  getNowPlayingMovies() {
-    return nowPlayingMovies;
-  }
-  getAllMovies() {
-    return [
-      ...nowPlayingMovies,
-      ...popularMovies,
-      ...topRatedMovies,
-      ...upcomingMovies,
-    ];
-  }
-  getFavoriteMovies() {
-    return this.favoriteMovies;
-  }
-  getWatchMovies() {
-    return this.watchMovies;
-  }
-  setMovies(movie: any, listName?: string) {
-    if (listName === 'favorite') {
-      if (
-        !this.favoriteMovies.some(
-          (el) => el.id === movie.id || el.title === movie.title
-        )
-      ) {
-        this.favoriteMovies.push(movie);
-      }
-    } else {
-      if (
-        !this.watchMovies.some(
-          (el) => el.id === movie.id || el.title === movie.title
-        )
-      ) {
-        this.watchMovies.push(movie);
-      }
-    }
+
+  getMovieById(id: number): Observable<MovieDetails> {
+    return this.http
+      .get<MovieDetails>(
+        `${environment.baseUrl}${id}?api_key=${environment.apiKey}`
+      )
+      .pipe(catchError(this.handleError));
   }
 }
