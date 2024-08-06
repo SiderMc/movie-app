@@ -1,3 +1,4 @@
+@if(movie){
 <section class="details">
   <div class="container">
     <h1 class="details__title section__title">{{ movie.title }}</h1>
@@ -5,7 +6,8 @@
       <div class="details__left">
         <img
           src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
-          alt=""
+          alt="{{ movie.title }}"
+          loading="lazy"
           class="details__image"
         />
       </div>
@@ -30,26 +32,27 @@
           <p class="details__text_movie">{{ movie.overview }}</p>
         </div>
         <div class="details__action">
-          <button
-            class="details__action_btn secondary__btn"
-            title="add to favorite list"
-            (click)="addToList(movie, 'favorite')"
-          >
-            <svg class="details__action_icon icons">
-              <use href="assets/images/symbol-defs.svg#add-to-favorite"></use>
-            </svg>
-          </button>
-          <button
-            class="details__action_btn secondary__btn"
-            title="add to watch later"
-            (click)="addToList(movie)"
-          >
-            <svg class="details__action_icon icons">
-              <use href="assets/images/symbol-defs.svg#add-to-watch"></use>
-            </svg>
-          </button>
+          <!-- <button
+              class="details__action_btn secondary__btn"
+              title="add to favorite list"
+              (click)="addToList(movie, 'favorite')"
+            >
+              <svg class="details__action_icon icons">
+                <use href="assets/images/symbol-defs.svg#add-to-favorite"></use>
+              </svg>
+            </button>
+            <button
+              class="details__action_btn secondary__btn"
+              title="add to watch later"
+              (click)="addToList(movie)"
+            >
+              <svg class="details__action_icon icons">
+                <use href="assets/images/symbol-defs.svg#add-to-watch"></use>
+              </svg>
+            </button> -->
         </div>
       </div>
     </div>
   </div>
 </section>
+}

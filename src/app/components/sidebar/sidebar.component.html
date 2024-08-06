@@ -11,10 +11,11 @@
       </button>
     </div>
     <ul class="sidebar__list">
-      <li class="sidebar__list_item" *ngFor="let item of menuItems">
+      <li class="sidebar__list_item" *ngFor="let item of routs">
         <a
           [routerLink]="item.link"
           routerLinkActive="sidebar__active"
+          [routerLinkActiveOptions]="{ exact: true }"
           class="sidebar__btn primary__btn"
         >
           <svg class="sidebar__icons icons">

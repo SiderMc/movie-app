@@ -4,32 +4,35 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie-service/movie.service';
+import { MovieDetails } from '../../models/movie';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RatingModule, FormsModule, MovieCardComponent],
+  imports: [RatingModule, FormsModule, MovieCardComponent, NotFoundComponent],
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
   id!: number;
-  movie: any;
+  movie!: MovieDetails;
   movieRating: number = 0;
   favoriteMovies: any[] = [];
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private storageService: LocalStorageService
   ) {}
   ngOnInit() {
     this.id = +this.route.snapshot.params['id'];
-    this.movie = this.movieService
-      .getAllMovies()
-      .find((el) => el.id === this.id);
-    this.favoriteMovies = this.movieService.getFavoriteMovies();
-    this.movieRating = Math.round(this.movie.vote_average / 2);
+    this.movieService.getMovieById(this.id).subscribe((response) => {
+      this.movie = response;
+      this.movieRating = Math.round(response.vote_average / 2);
+    });
   }
-  addToList(movie: any, listName?: string) {
-    this.movieService.setMovies(movie, listName);
+  addToList(movie: any, listName: string): void {
+    this.storageService.setLocalStorage(movie, listName);
   }
 }
